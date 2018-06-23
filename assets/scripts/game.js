@@ -1,3 +1,17 @@
+// A function to turn a 9-element array into a 3X3 2D testArray
+const array2D = function (array) {
+  const arrayBoard = []
+  const boardWidth = 3
+  for (let row = 0; row < boardWidth; row++) {
+    const arrayRow = []
+    for (let col = 0; col < boardWidth; col++) {
+      arrayRow[col] = array[ row * boardWidth + col ]
+    }
+    arrayBoard.push(arrayRow)
+  }
+  return arrayBoard
+}
+
 
 // Create an HTML table based on an array.
 // This should automatically update the board based on the JS...
@@ -18,14 +32,10 @@ const boardToHTML = function (array) {
   boardDiv.appendChild(table)
 }
 
-const testArray = [
-  ['x', 'o', 'x'],
-  ['', '', ''],
-  ['', '', '']
-]
+const testArray1D = ["o","x","o","x","o","x","o","x","o"]
 
 const makeBoard = function () {
-  boardToHTML(testArray)
+  boardToHTML(array2D(testArray1D))
 }
 
 module.exports = {
