@@ -7,5 +7,18 @@
 // require('./example')
 
 $(() => {
-  // your JS code goes here
+  // const testArray = [
+  //   ['x', 'o', 'x'],
+  //   ['', '', ''],
+  //   ['', '', '']
+  // ]
+
+  // const boardToHTML = require('./game.js').boardToHTML()
+  // boardToHTML(testArray)
+
+  const board = document.getElementById('game-board')
+  board.textContent = 'testing'
+
+  // document.getElementById('testing').textContent = 'testing'
+
 })
