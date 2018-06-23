@@ -17,3 +17,19 @@ const boardToHTML = function (array) {
   }
   boardDiv.appendChild(table)
 }
+
+// const testArray = [
+//   ['x', 'o', 'x'],
+//   ['', '', ''],
+//   ['', '', '']
+// ]
+
+const makeBoard = function () {
+  console.log('makeBoard ran')
+  const board = document.getElementById('game-board')
+  board.textContent = 'testing in game.js'
+}
+
+module.exports = {
+  makeBoard
+}
