@@ -17,12 +17,8 @@ const arrayTo2D = function (array) {
   return arrayBoard
 }
 
-// Create an HTML table based on an array.
-// This should automatically update the board based on the JS...
-// not clear yet how to get user input
-// TODO: attach an event listener to the node before I
-// append it to the table row
-// use text node? Or table data?
+// Creates an HTML table in the DOM based on a JS array.
+// Attaches a click listener to each table element.
 const boardToHTML = function (array) {
   const boardDiv = document.getElementById('game-board')
   const table = document.createElement('table')
@@ -31,16 +27,20 @@ const boardToHTML = function (array) {
     for (let col = 0; col < array[row].length; col++) {
       const tableData = document.createElement('td')
       const textNode = document.createTextNode(array[row][col])
-      $(tableData).click(function () {
-        console.log('clicked')
-        this.firstChild.textContent = 'a'
-      })
+      $(tableData).click(onSquareClick)
       tableData.appendChild(textNode)
       tableRow.appendChild(tableData)
     }
     table.appendChild(tableRow)
   }
   boardDiv.appendChild(table)
+}
+
+// function which runs when an element of the tic tac toe board array
+// is clicked
+const onSquareClick = function () {
+  console.log('clicked')
+  this.firstChild.textContent = 'a'
 }
 
 const testArray1D = ["o","a","o","x","o","x","o","x","o"]
