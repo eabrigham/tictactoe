@@ -14,7 +14,6 @@ const arrayTo2D = function (array) {
   return arrayBoard
 }
 
-
 // Creates an HTML table in the DOM based on a JS array.
 // Attaches a click listener to each table element.
 const boardToHTML = function (array) {
