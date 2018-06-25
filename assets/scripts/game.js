@@ -1,7 +1,4 @@
-// search the board for three in a row of a given mark
-const search = function (board, mark) {
 
-}
 
 // A function to turn a 9-element array into a 3X3 2D testArray
 const arrayTo2D = function (array) {
@@ -17,6 +14,7 @@ const arrayTo2D = function (array) {
   return arrayBoard
 }
 
+
 // Creates an HTML table in the DOM based on a JS array.
 // Attaches a click listener to each table element.
 const boardToHTML = function (array) {
@@ -26,6 +24,7 @@ const boardToHTML = function (array) {
     const tableRow = document.createElement('tr')
     for (let col = 0; col < array[row].length; col++) {
       const tableData = document.createElement('td')
+      // TODO: make a variable to go into the array?
       const textNode = document.createTextNode(array[row][col])
       $(tableData).click(onSquareClick)
       tableData.appendChild(textNode)
@@ -36,14 +35,18 @@ const boardToHTML = function (array) {
   boardDiv.appendChild(table)
 }
 
-// function which runs when an element of the tic tac toe board array
-// is clicked
-const onSquareClick = function () {
-  console.log('clicked')
+// Callback function when an element of the tic tac toe board array is clicked
+// TODO: this will need to initiate updating the JS array
+// (part of a game object...?) and searching for a winner
+// TODO: put in events.js
+const onSquareClick = function (event) {
+  console.log(event)
+  gameArr[event.target.id] = 'X'
   this.firstChild.textContent = 'a'
 }
 
-const testArray1D = ["o","a","o","x","o","x","o","x","o"]
+
+const testArray1D = ['o', 'x', 'o', 'o', 'x', 'x', 'x', 'o', 'o']
 
 const makeBoard = function () {
   boardToHTML(arrayTo2D(testArray1D))
