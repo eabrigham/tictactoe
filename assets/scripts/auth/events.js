@@ -4,15 +4,22 @@ Verify that data is in correct format
 Run fxn from API file to sign up user
 */
 const getFormFields = require('../../../lib/get-form-fields.js')
-const api = require('../')
+const api = require('./authApi.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
 
-  const data = getFormFields(event.target)
+  const data = getFormFields(this)
   console.log(data)
-
-
+  if (data.credentials.email === '') {
+    // TODO: make this log to user
+    console.log('Please provide email')
+  }
+  // TODO: verify password & same as confirmation
+  else {
+    api.signUp()
+    // TODO: add then catch statements
+  }
 }
 
 module.exports = {
