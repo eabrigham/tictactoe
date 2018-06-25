@@ -17,7 +17,7 @@ const onSignUp = function (event) {
   }
   // TODO: verify password & same as confirmation
   else {
-    api.signUp()
+    api.signUp(data)
     // TODO: add then catch statements
   }
 }
