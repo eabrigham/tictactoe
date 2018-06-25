@@ -18,6 +18,12 @@ const onSignUp = function (event) {
   // TODO: verify password & same as confirmation
   else {
     api.signUp(data)
+      .then( function (response) {
+        console.log(response)
+      })
+      .catch( function (err) {
+        console.error(err)
+      })
     // TODO: add then catch statements
   }
 }
