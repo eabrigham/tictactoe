@@ -25,6 +25,9 @@ const boardToHTML = function (array) {
       const tableData = document.createElement('td')
       // TODO: make a variable to go into the array?
       const textNode = document.createTextNode(array[row][col])
+      // the number in a 9-element list
+      const listNum = 3 * row + col
+      tableData.setAttribute('id', listNum)
       $(tableData).click(onSquareClick)
       tableData.appendChild(textNode)
       tableRow.appendChild(tableData)
@@ -34,18 +37,37 @@ const boardToHTML = function (array) {
   boardDiv.appendChild(table)
 }
 
+
+// Temporarily assigning the mark to x:
+let mark = 'x'
+
 // Callback function when an element of the tic tac toe board array is clicked
 // TODO: this will need to initiate updating the JS array
 // (part of a game object...?) and searching for a winner
 // TODO: put in events.js
 const onSquareClick = function (event) {
   console.log(event)
-  gameArr[event.target.id] = 'X'
-  this.firstChild.textContent = 'a'
+  // gameArr[event.target.id] = 'X'
+
+  // 1. Get the place where the user clicked (may need to add id to each element in boardToHTML)
+  const id = this.id
+  console.log(`The id of the table data is ${id}`)
+  // 2. Update the game HTML
+  const textNode = this.firstChild
+  if (textNode.textContent === '') {
+    console.log(`The space is unplayed and is being marked with ${mark}`)
+    textNode.textContent = mark
+  } else {
+    console.log('The space has already been played')
+  }
+  // 3. Update the JS game array (in Game?)
+  //      - check for winner
+
+
 }
 
 
-const testArray1D = ['o', 'x', 'o', 'o', 'x', 'x', 'x', 'o', 'o']
+const testArray1D = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', 'o']
 
 const makeBoard = function () {
   boardToHTML(arrayTo2D(testArray1D))
