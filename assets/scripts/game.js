@@ -37,7 +37,6 @@ const boardToHTML = function (array) {
   boardDiv.appendChild(table)
 }
 
-
 // Temporarily assigning the mark to x:
 let mark = 'x'
 
@@ -57,15 +56,36 @@ const onSquareClick = function (event) {
   if (textNode.textContent === '') {
     console.log(`The space is unplayed and is being marked with ${mark}`)
     textNode.textContent = mark
+    // for now, updating test array with mark
+    // TODO in future update game array
+    testArray1D[id] = mark
   } else {
     console.log('The space has already been played')
   }
   // 3. Update the JS game array (in Game?)
   //      - check for winner
-
-
+  checkWinner(testArray1D, mark)
 }
 
+// Takes a nine-value 1-D array and checks for three in a row
+const checkWinner = function (array, mark) {
+  // check the possible crosses for three in a row
+  if (threeInARow(array, mark, 0, 1, 2) || threeInARow(array, mark, 3, 4, 5) ||
+    threeInARow(array, mark, 6, 7, 8) || threeInARow(array, mark, 0, 4, 8) ||
+    threeInARow(array, mark, 2, 4, 6)) {
+    console.log('We have a winner!')
+  }
+}
+
+const threeInARow = function (array, mark, id1, id2, id3) {
+  if (array[id1] !== mark) {
+    return false
+  } else if (array[id2] !== mark) {
+    return false
+  } else if (array[id3] !== mark) {
+    return false
+  } else { return true }
+}
 
 const testArray1D = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', 'o']
 
