@@ -1,9 +1,8 @@
 const setup = require('./setup.js')
-
-const testArray1D = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', '']
+const gameObj = require('./gameObj.js')
 
 const makeBoard = function () {
-  setup.boardToHTML(testArray1D)
+  setup.boardToHTML(gameObj.currGame.cells)
 }
 
 module.exports = {
