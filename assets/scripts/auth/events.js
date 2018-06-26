@@ -4,7 +4,7 @@ Verify that data is in correct format
 Run fxn from API file to sign up user
 */
 const getFormFields = require('../../../lib/get-form-fields.js')
-const api = require('./authApi.js')
+const api = require('./api.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
