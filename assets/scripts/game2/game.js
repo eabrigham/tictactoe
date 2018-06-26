@@ -1,4 +1,5 @@
-
+const checkWinnerFile = require('./checkWinner')
+const checkWinner = checkWinnerFile.checkWinner
 
 // A function to turn a 9-element array into a 3X3 2D testArray
 const arrayTo2D = function (array) {
@@ -67,27 +68,9 @@ const onSquareClick = function (event) {
   checkWinner(testArray1D, mark)
 }
 
-// Takes a nine-value 1-D array and checks for three in a row
-const checkWinner = function (array, mark) {
-  // check the possible crosses for three in a row
-  if (threeInARow(array, mark, 0, 1, 2) || threeInARow(array, mark, 3, 4, 5) ||
-    threeInARow(array, mark, 6, 7, 8) || threeInARow(array, mark, 0, 4, 8) ||
-    threeInARow(array, mark, 2, 4, 6)) {
-    console.log('We have a winner!')
-  }
-}
 
-const threeInARow = function (array, mark, id1, id2, id3) {
-  if (array[id1] !== mark) {
-    return false
-  } else if (array[id2] !== mark) {
-    return false
-  } else if (array[id3] !== mark) {
-    return false
-  } else { return true }
-}
 
-const testArray1D = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', 'o']
+const testArray1D = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', '']
 
 const makeBoard = function () {
   boardToHTML(arrayTo2D(testArray1D))
