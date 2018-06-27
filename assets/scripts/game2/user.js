@@ -1,5 +1,4 @@
-const checkWinnerFile = require('./checkWinner')
-const checkWinner = checkWinnerFile.checkWinner
+const checkWinner = require('./checkWinner.js')
 
 const testArray1D = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', '']
 
