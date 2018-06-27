@@ -8,6 +8,7 @@ const marks = ['x', 'o']
 function Game (cells, currPlayerMark) {
   this.cells = cells
   this.turns = 0
+  this.over = false
   this.currPlayerMark = marks[0]
 }
 
@@ -18,6 +19,10 @@ function Game (cells, currPlayerMark) {
 // Function which has the current player move at the given html DOM element
 // and check for a winner
 Game.prototype.move = function (domElement) {
+  if (this.over === true) {
+    console.log('The game is over')
+    return false
+  }
   const index = domElement.id
   if (this.cells[index] !== '') {
     console.error('This spot has already been played in')
@@ -29,8 +34,9 @@ Game.prototype.move = function (domElement) {
   const textNode = document.createTextNode(this.currPlayerMark)
   domElement.replaceChild(textNode, domElement.firstChild)
   // Thanks Nate!
-  gameFxns.checkWinner(this.cells, this.currPlayerMark)
+  gameFxns.checkWinner(this.cells, this.currPlayerMark, this.over)
 
+  console.log(`Is the game over? ${this.over}`)
   // Change the Player:
   this.turns++
   this.currPlayerMark = marks[this.turns % 2]
