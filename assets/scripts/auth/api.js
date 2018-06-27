@@ -21,7 +21,17 @@ const signIn = function (data) {
   })
 }
 
+const signOut = function () {
+
+}
+
+const changePassword = function (data) {
+
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  signOut,
+  changePassword
 }

@@ -41,7 +41,34 @@ const onSignIn = function (event) {
     })
 }
 
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+}
+
+
+
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onSignOut,
+  onChangePassword
 }

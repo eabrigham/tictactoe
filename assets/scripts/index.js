@@ -10,6 +10,8 @@ const authEvents = require('./auth/events.js')
 $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-out').on('submit', authEvents.onSignOut)
+  $('#change-password').on('submit', authEvents.onChangePassword)
 
   const game = require('./game2/game.js')
   game.makeBoard()
