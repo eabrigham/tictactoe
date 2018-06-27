@@ -7,8 +7,9 @@ const currPlayer = 'x'
 const currGame = new gameObj.Game(currCells, currPlayer)
 
 
+
 const makeBoard = function () {
-  setup.boardToHTML(currGame.cells)
+  setup.boardToHTML(currGame)
 }
 
 module.exports = {

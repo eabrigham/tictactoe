@@ -1,4 +1,4 @@
-const user = require('./user.js')
+// const user = require('./user.js')
 
 // A function to turn a 9-element array into a 3X3 2D testArray
 const arrayTo2D = function (array) {
@@ -16,8 +16,8 @@ const arrayTo2D = function (array) {
 
 // Creates an HTML table in the DOM based on a JS array.
 // Attaches a click listener to each table element.
-const boardToHTML = function (inputArray) {
-  const array = arrayTo2D(inputArray)
+const boardToHTML = function (currGame) {
+  const array = arrayTo2D(currGame.cells)
   const boardDiv = document.getElementById('game-board')
   const table = document.createElement('table')
   for (let row = 0; row < array.length; row++) {
@@ -25,11 +25,13 @@ const boardToHTML = function (inputArray) {
     for (let col = 0; col < array[row].length; col++) {
       const tableData = document.createElement('td')
       // TODO: make a variable to go into the array?
-      const textNode = document.createTextNode(array[row][col])
+      let textNode = document.createTextNode(array[row][col])
       // the number in a 9-element list
       const listNum = 3 * row + col
       tableData.setAttribute('id', listNum)
-      $(tableData).click(user.onSquareClick)
+      $(tableData).click(function (event) {
+        currGame.move(event.target)
+      })
       tableData.appendChild(textNode)
       tableRow.appendChild(tableData)
     }
