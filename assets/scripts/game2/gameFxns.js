@@ -2,8 +2,12 @@
 const checkWinner = function (array, mark) {
   // check the possible crosses for three in a row
   if (threeInARow(array, mark, 0, 1, 2) || threeInARow(array, mark, 3, 4, 5) ||
-    threeInARow(array, mark, 6, 7, 8) || threeInARow(array, mark, 0, 4, 8) ||
-    threeInARow(array, mark, 2, 4, 6)) {
+    threeInARow(array, mark, 6, 7, 8) ||
+    // up & down
+    threeInARow(array, mark, 0, 3, 6) || threeInARow(array, mark, 1, 4, 7) ||
+    threeInARow(array, mark, 2, 5, 8) ||
+    // diagonals
+    threeInARow(array, mark, 0, 4, 8) || threeInARow(array, mark, 2, 4, 6)) {
     console.log('We have a winner!')
     return true
   }
