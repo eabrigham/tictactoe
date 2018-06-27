@@ -1,4 +1,3 @@
-// const user = require('./user.js')
 
 // A function to turn a 9-element array into a 3X3 2D testArray
 const arrayTo2D = function (array) {
