@@ -7,9 +7,14 @@ const marks = ['x', 'o']
 
 function Game (cells, currPlayerMark) {
   this.cells = cells
+  this.turns = 0
+
   this.currPlayerMark = currPlayerMark
 }
 
+// So... future issue. I'm making this so that the current player changes
+// based on the number of turns, but haven't (yet) gotten rid of initially
+// setting the player.
 Game.prototype.changePlayer = function () {
 
 }
@@ -29,6 +34,10 @@ Game.prototype.move = function (domElement) {
   domElement.replaceChild(textNode, domElement.firstChild)
   // Thanks Nate!
   gameFxns.checkWinner(this.cells, this.currPlayerMark)
+
+  // Change the Player:
+  this.turns++
+  this.currPlayerMark = marks[this.turns % 2]
   return true
 }
 
