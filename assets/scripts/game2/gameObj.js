@@ -8,16 +8,12 @@ const marks = ['x', 'o']
 function Game (cells, currPlayerMark) {
   this.cells = cells
   this.turns = 0
-
-  this.currPlayerMark = currPlayerMark
+  this.currPlayerMark = marks[0]
 }
 
 // So... future issue. I'm making this so that the current player changes
 // based on the number of turns, but haven't (yet) gotten rid of initially
 // setting the player.
-Game.prototype.changePlayer = function () {
-
-}
 
 // Function which has the current player move at the given html DOM element
 // and check for a winner
