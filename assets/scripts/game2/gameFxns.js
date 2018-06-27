@@ -17,4 +17,6 @@ const threeInARow = function (array, mark, id1, id2, id3) {
   } else { return true }
 }
 
-module.exports = checkWinner
+module.exports = {
+  checkWinner
+}
