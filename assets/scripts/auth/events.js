@@ -9,24 +9,10 @@ const ui = require('./ui.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
-
   const data = getFormFields(this)
-  console.log(data)
-  if (data.credentials.email === '') {
-    // TODO: make this log to user
-    console.log('Please provide email')
-  }
-  // TODO: verify password & same as confirmation
-  else {
-    api.signUp(data)
-      .then(function (response) {
-        console.log(response)
-      })
-      .catch(function (err) {
-        console.error(err)
-      })
-    // TODO: add then catch statements
-  }
+  api.signUp(data)
+    .then(ui.signUpSuccess)
+    .catch(ui.signUpFailure)
 }
 
 const onSignIn = function (event) {
