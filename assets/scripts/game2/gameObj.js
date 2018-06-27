@@ -34,7 +34,7 @@ Game.prototype.move = function (domElement) {
   const textNode = document.createTextNode(this.currPlayerMark)
   domElement.replaceChild(textNode, domElement.firstChild)
   // Thanks Nate!
-  gameFxns.checkWinner(this.cells, this.currPlayerMark, this.over)
+  this.over = gameFxns.checkWinner(this.cells, this.currPlayerMark)
 
   console.log(`Is the game over? ${this.over}`)
   // Change the Player:
