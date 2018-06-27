@@ -5,6 +5,7 @@ Run fxn from API file to sign up user
 */
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
+const ui = require('./ui.js')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -33,38 +34,24 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   // TODO verify data format
   api.signIn(data)
-    .then(function (response) {
-      console.log(response)
-    })
-    .catch(function (err) {
-      console.error(err)
-    })
+    .then(ui.signInSuccess)
+    .catch(ui.signInFailure)
 }
 
 const onSignOut = function (event) {
   event.preventDefault()
   api.signOut()
-    .then(function (response) {
-      console.log(response)
-    })
-    .catch(function (err) {
-      console.error(err)
-    })
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onChangePassword = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.changePassword(data)
-    .then(function (response) {
-      console.log(response)
-    })
-    .catch(function (err) {
-      console.error(err)
-    })
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
 }
-
-
 
 module.exports = {
   onSignUp,
