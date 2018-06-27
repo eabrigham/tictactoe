@@ -17,6 +17,18 @@ const threeInARow = function (array, mark, id1, id2, id3) {
   } else { return true }
 }
 
+// a function which counts element in an array which are not empty strings
+const countElems = function (array) {
+  let count = 0
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] !== '') {
+      count++
+    }
+  }
+  return count
+}
+
 module.exports = {
-  checkWinner
+  checkWinner,
+  countElems
 }
