@@ -1,7 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-td {
-  background-color: #33dddd;
-  width: 20px;
+$turquoise: #33dddd;
+
+#game-board {
+  background-color: $turquoise;
+  width: 90px;
+}
+
+.data-table {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border-color: black;
 }

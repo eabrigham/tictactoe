@@ -23,8 +23,8 @@ const boardToHTML = function (currGame) {
     const tableRow = document.createElement('tr')
     for (let col = 0; col < array[row].length; col++) {
       const tableData = document.createElement('td')
-      // TODO: make a variable to go into the array?
-      let textNode = document.createTextNode(array[row][col])
+      tableData.className = 'data-table'
+      const textNode = document.createTextNode(array[row][col])
       // the number in a 9-element list
       const listNum = 3 * row + col
       tableData.setAttribute('id', listNum)

@@ -1,7 +1,7 @@
 const setup = require('./setup.js')
 const gameObj = require('./gameObj.js')
 
-const currCells = ['', '', 'o', 'o', 'x', 'x', 'x', 'o', '']
+const currCells = ['', '', '', '', '', '', '', '', '']
 const currPlayer = 'x'
 
 const currGame = new gameObj.Game(currCells, currPlayer)
