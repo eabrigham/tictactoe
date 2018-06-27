@@ -18,16 +18,30 @@ const onSignUp = function (event) {
   // TODO: verify password & same as confirmation
   else {
     api.signUp(data)
-      .then( function (response) {
+      .then(function (response) {
         console.log(response)
       })
-      .catch( function (err) {
+      .catch(function (err) {
         console.error(err)
       })
     // TODO: add then catch statements
   }
 }
 
+const onSignIn = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  // TODO verify data format
+  api.signIn(data)
+    .then(function (response) {
+      console.log(response)
+    })
+    .catch(function (err) {
+      console.error(err)
+    })
+}
+
 module.exports = {
-  onSignUp
+  onSignUp,
+  onSignIn
 }
