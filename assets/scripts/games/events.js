@@ -1,7 +1,6 @@
 const setup = require('./setup.js')
 const gameObj = require('./gameObj.js')
 
-
 const newGame = function (event) {
   event.preventDefault()
 
