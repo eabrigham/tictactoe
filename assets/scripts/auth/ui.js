@@ -17,6 +17,7 @@ const signUpFailure = function (err) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully')
   $('#message').css('background-color', 'green')
+  $('#new-game').css('visibility', 'visible')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
