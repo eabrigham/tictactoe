@@ -5,7 +5,7 @@ const gameFxns = require('./gameFxns.js')
 
 const marks = ['x', 'o']
 
-function Game (cells, currPlayerMark) {
+function Game (cells) {
   this.cells = cells
   this.turns = 0
   this.over = false

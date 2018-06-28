@@ -1,17 +1,15 @@
 const setup = require('./setup.js')
 const gameObj = require('./gameObj.js')
 
-const currCells = ['', '', '', '', '', '', '', '', '']
-const currPlayer = 'x'
 
-const currGame = new gameObj.Game(currCells, currPlayer)
+const newGame = function (event) {
+  event.preventDefault()
 
-
-
-const makeBoard = function () {
+  const blankBoard = ['', '', '', '', '', '', '', '', '']
+  const currGame = new gameObj.Game(blankBoard)
   setup.boardToHTML(currGame)
 }
 
 module.exports = {
-  makeBoard
+  newGame
 }
