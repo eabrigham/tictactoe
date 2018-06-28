@@ -2,6 +2,7 @@
 // eventually, they will come from the API?
 
 const gameFxns = require('./gameFxns.js')
+const ui = require('./ui.js')
 
 const marks = ['x', 'o']
 
@@ -19,22 +20,32 @@ function Game (cells) {
 // Function which has the current player move at the given html DOM element
 // and check for a winner
 Game.prototype.move = function (domElement) {
+  ui.wipeMessage()
   if (this.over === true) {
+    ui.gameAlreadyOver()
     console.log('The game is over')
     return false
   }
   const index = domElement.id
   if (this.cells[index] !== '') {
     console.error('This spot has already been played in')
-    // TODO make this a proper UI message
+    ui.alreadyPlayed()
     return false
   }
+  // update array locally
   this.cells[index] = this.currPlayerMark
+
+  // check for winner
+  this.over = gameFxns.checkWinner(this.cells, this.currPlayerMark)
+
+  // API request goes here
+
+
 
   const textNode = document.createTextNode(this.currPlayerMark)
   domElement.replaceChild(textNode, domElement.firstChild)
   // Thanks Nate!
-  this.over = gameFxns.checkWinner(this.cells, this.currPlayerMark)
+
 
   console.log(`Is the game over? ${this.over}`)
   // Change the Player:
