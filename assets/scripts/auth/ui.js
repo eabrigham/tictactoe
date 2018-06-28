@@ -5,6 +5,7 @@ const store = require('../store.js')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully')
   $('#message').css('background-color', 'green')
+  $('#new-game').css('visibility', 'visible')
   console.log('signUpSuccess ran. Data is :', data)
 }
 
