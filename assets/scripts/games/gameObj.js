@@ -46,6 +46,9 @@ Game.prototype.move = function (domElement) {
   domElement.replaceChild(textNode, domElement.firstChild)
   // Thanks Nate!
 
+  if (this.over) {
+    ui.winner(this.currPlayerMark)
+  }
 
   console.log(`Is the game over? ${this.over}`)
   // Change the Player:

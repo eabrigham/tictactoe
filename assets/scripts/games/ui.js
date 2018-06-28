@@ -1,5 +1,5 @@
 const wipeMessage = function () {
-  $('#game-message').empty()
+  $('#game-message').text('')
 }
 
 const gameAlreadyOver = function () {
@@ -10,8 +10,13 @@ const alreadyPlayed = function () {
   $('#game-message').text('That square has already been played in')
 }
 
+const winner = function (winnerMark) {
+  $('#game-message').text(`Player ${winnerMark} won!`)
+}
+
 module.exports = {
   wipeMessage,
   gameAlreadyOver,
-  alreadyPlayed
+  alreadyPlayed,
+  winner
 }
