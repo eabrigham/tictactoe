@@ -1,6 +1,4 @@
 const store = require('./../store.js')
-const setup = require('./setup.js')
-const gameObj = require('./gameObj.js')
 
 const wipeMessage = function () {
   $('#game-message').text('')
@@ -18,13 +16,14 @@ const winner = function (winnerMark) {
   $('#game-message').text(`Player ${winnerMark} won!`)
 }
 
-const onCreateGameSuccess = function (data) {
+const onCreateSuccess = function (data) {
   store.id = data.game.id
-  console.log(data)
-  // $('#game-board').empty()
-  // const blankBoard = ['', '', '', '', '', '', '', '', '']
-  // const currGame = new gameObj.Game(blankBoard)
-  // setup.boardToHTML(currGame)
+  $('#game-board').empty()
+}
+
+const onCreateFailure = function (error) {
+  $('#game-message').text('The server cannot be reached. Please try again later.')
+  console.log(`Create board API call failed: ${error}`)
 }
 
 module.exports = {
@@ -32,5 +31,6 @@ module.exports = {
   gameAlreadyOver,
   alreadyPlayed,
   winner,
-  onCreateGameSuccess
+  onCreateSuccess,
+  onCreateFailure
 }
