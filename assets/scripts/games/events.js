@@ -7,7 +7,7 @@ const newGame = function (event) {
   event.preventDefault()
   ui.wipeMessage()
   api.createGame()
-    .then((data) => { console.log(data) })
+    .then(ui.onCreateGameSuccess)
     .catch((error) => { console.error(error) })
 
   $('#game-board').empty()
