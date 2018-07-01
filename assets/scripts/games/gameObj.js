@@ -3,6 +3,7 @@
 
 const gameFxns = require('./gameFxns.js')
 const ui = require('./ui.js')
+const api = require('./api.js')
 
 const marks = ['x', 'o']
 
@@ -12,10 +13,6 @@ function Game (cells) {
   this.over = false
   this.currPlayerMark = marks[0]
 }
-
-// So... future issue. I'm making this so that the current player changes
-// based on the number of turns, but haven't (yet) gotten rid of initially
-// setting the player.
 
 // Function which has the current player move at the given html DOM element
 // and check for a winner
@@ -39,8 +36,18 @@ Game.prototype.move = function (domElement) {
   this.over = gameFxns.checkWinner(this.cells, this.currPlayerMark)
 
   // API request goes here
-
-
+  const apiData = {
+    game: {
+      cell: {
+        index: index,
+        value: this.currPlayerMark
+      },
+      over: this.over
+    }
+  }
+  api.updateMove(JSON.stringify(apiData))
+    .then((data) => console.log(data))
+    .catch((error) => console.error(error))
 
   const textNode = document.createTextNode(this.currPlayerMark)
   domElement.replaceChild(textNode, domElement.firstChild)
