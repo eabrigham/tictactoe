@@ -21,10 +21,10 @@ curl --include --request PATCH "https://tic-tac-toe-wdi.herokuapp.com/games/${ID
   --data '{
   "game": {
     "cell": {
-      "index": "'"${INDEX}"'",
-      "value": "'"${VALUE}"'"
+      "index": 0,
+      "value": "x"
     },
-    "over": "'"${OVER}"'"
+    "over": false
   }
 }'
 echo
