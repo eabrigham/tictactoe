@@ -13,10 +13,9 @@ const createGame = function () {
   })
 }
 
-// hard coded data to debug api request
-const updateMove = function () {
+const updateMove = function (data) {
   console.log('running api request to update move')
-  console.log(store)
+  
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -25,7 +24,7 @@ const updateMove = function () {
       "Content-type": 'application/json',
       Authorization: 'Token token=' + store.user.token
     },
-    data: '{ "game": { "cell": { "index": 0, "value": "x" },"over": false } }'
+    data
   })
 }
 
