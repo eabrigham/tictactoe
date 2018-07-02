@@ -8,14 +8,15 @@ const createGame = function () {
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: {}
   })
 }
 
 const updateMove = function (data) {
   console.log('running api request to update move')
   return $.ajax({
-    url: config.apiUrl + '/games/:' + store.id,
+    url: config.apiUrl + '/games/:' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

@@ -17,12 +17,14 @@ const winner = function (winnerMark) {
 }
 
 const onCreateSuccess = function (data) {
-  store.id = data.game.id
+  store.game = {}
+  store.game.id = data.game.id
+  console.log('The game id is', store.game.id)
   $('#game-board').empty()
 }
 
 const onCreateFailure = function (error) {
-  $('#game-message').text('The server cannot be reached. Please try again later.')
+  $('#game-message').text('The server cannot be reached.')
   console.log(`Create board API call failed: ${error}`)
 }
 

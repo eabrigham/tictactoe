@@ -31,7 +31,6 @@ Game.prototype.move = function (domElement) {
   }
   // update array locally
   this.cells[index] = this.currPlayerMark
-
   // check for winner
   this.over = gameFxns.checkWinner(this.cells, this.currPlayerMark)
 
@@ -45,6 +44,7 @@ Game.prototype.move = function (domElement) {
       over: this.over
     }
   }
+  console.log(JSON.stringify(apiData))
   api.updateMove(JSON.stringify(apiData))
     .then((data) => console.log(data))
     .catch((error) => console.error(error))
