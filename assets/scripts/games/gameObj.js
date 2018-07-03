@@ -44,24 +44,30 @@ Game.prototype.move = function (domElement) {
       over: this.over
     }
   }
+  // TODO remove console log
   console.log(JSON.stringify(apiData))
+
+  console.log(`The current player mark is ${this.currPlayerMark} inside gameObj.js`)
+
   api.updateMove(JSON.stringify(apiData))
-    .then((data) => console.log(data))
+    .then((data) => {
+      ui.onUpdateSuccess(data, domElement, this.currPlayerMark)
+    })
     .catch((error) => console.error(error))
 
-  const textNode = document.createTextNode(this.currPlayerMark)
-  domElement.replaceChild(textNode, domElement.firstChild)
+  // const textNode = document.createTextNode(this.currPlayerMark)
+  // domElement.replaceChild(textNode, domElement.firstChild)
   // Thanks Nate!
 
   if (this.over) {
     ui.winner(this.currPlayerMark)
   }
 
-  console.log(`Is the game over? ${this.over}`)
-  // Change the Player:
-  this.turns++
-  this.currPlayerMark = marks[this.turns % 2]
-  return true
+  // console.log(`Is the game over? ${this.over}`)
+  // // Change the Player:
+  // this.turns++
+  // this.currPlayerMark = marks[this.turns % 2]
+  // return true
 }
 
 module.exports = {

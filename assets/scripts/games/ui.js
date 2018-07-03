@@ -28,11 +28,19 @@ const onCreateFailure = function (error) {
   console.log(`Create board API call failed: ${error}`)
 }
 
+const onUpdateSuccess = function (data, domElement, mark) {
+  console.log(data)
+  console.log(`The mark is ${mark} inside ui.js`)
+  const textNode = document.createTextNode(mark)
+  domElement.replaceChild(textNode, domElement.firstChild)
+}
+
 module.exports = {
   wipeMessage,
   gameAlreadyOver,
   alreadyPlayed,
   winner,
   onCreateSuccess,
-  onCreateFailure
+  onCreateFailure,
+  onUpdateSuccess
 }
