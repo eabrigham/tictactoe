@@ -17,6 +17,18 @@ const newGame = function (event) {
     .catch(ui.onCreateFailure)
 }
 
+const displayGames = function (event) {
+  event.preventDefault()
+  // TODO get this working properly and work through logic
+  // of how it should work
+  api.getCompletedGames()
+    .then(function (data) {
+      console.log('ran api display games and data is: ', data)
+    })
+    .catch(ui.onAjaxFailure)
+}
+
 module.exports = {
-  newGame
+  newGame,
+  displayGames
 }
