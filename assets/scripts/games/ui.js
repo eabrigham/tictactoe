@@ -12,10 +12,6 @@ const alreadyPlayed = function () {
   $('#game-message').text('That square has already been played in')
 }
 
-const winner = function (winnerMark) {
-  $('#game-message').text(`Player ${winnerMark} won!`)
-}
-
 const onCreateSuccess = function (data) {
   store.game = {}
   store.game.id = data.game.id
@@ -33,13 +29,17 @@ const onUpdateSuccess = function (data, domElement, mark) {
   console.log(`The mark is ${mark} inside ui.js`)
   const textNode = document.createTextNode(mark)
   domElement.replaceChild(textNode, domElement.firstChild)
+  
+  if (data.game.over) {
+    console.log('The game is over inside onUpdateSuccess')
+    $('#game-message').text(`Player ${mark} won!`)
+  }
 }
 
 module.exports = {
   wipeMessage,
   gameAlreadyOver,
   alreadyPlayed,
-  winner,
   onCreateSuccess,
   onCreateFailure,
   onUpdateSuccess

@@ -53,21 +53,17 @@ Game.prototype.move = function (domElement) {
     .then((data) => {
       ui.onUpdateSuccess(data, domElement, this.currPlayerMark)
     })
+    .then(
+      // TODO: change the player
+      // but see below for 'this'
+    )
     .catch((error) => console.error(error))
 
-  // const textNode = document.createTextNode(this.currPlayerMark)
-  // domElement.replaceChild(textNode, domElement.firstChild)
-  // Thanks Nate!
-
-  if (this.over) {
-    ui.winner(this.currPlayerMark)
-  }
-
-  // console.log(`Is the game over? ${this.over}`)
-  // // Change the Player:
-  // this.turns++
-  // this.currPlayerMark = marks[this.turns % 2]
-  // return true
+  console.log(`Is the game over? ${this.over}`)
+  // Change the Player:
+  this.turns++
+  this.currPlayerMark = marks[this.turns % 2]
+  return true
 }
 
 module.exports = {
