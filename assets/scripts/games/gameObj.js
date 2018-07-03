@@ -1,5 +1,3 @@
-// For now, I am hard-coding these sample values for the game.
-// eventually, they will come from the API?
 
 const gameFxns = require('./gameFxns.js')
 const ui = require('./ui.js')
@@ -44,26 +42,20 @@ Game.prototype.move = function (domElement) {
       over: this.over
     }
   }
-  // TODO remove console log
-  console.log(JSON.stringify(apiData))
-
-  console.log(`The current player mark is ${this.currPlayerMark} inside gameObj.js`)
 
   api.updateMove(JSON.stringify(apiData))
     .then((data) => {
       ui.onUpdateSuccess(data, domElement, this.currPlayerMark)
     })
-    .then(
-      // TODO: change the player
-      // but see below for 'this'
-    )
-    .catch((error) => console.error(error))
+    .then(() => {this.changePlayer()})
+    .catch(api.onAjaxFailure)
 
   console.log(`Is the game over? ${this.over}`)
-  // Change the Player:
+}
+
+Game.prototype.changePlayer = function () {
   this.turns++
   this.currPlayerMark = marks[this.turns % 2]
-  return true
 }
 
 module.exports = {

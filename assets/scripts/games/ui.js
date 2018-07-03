@@ -29,11 +29,14 @@ const onUpdateSuccess = function (data, domElement, mark) {
   console.log(`The mark is ${mark} inside ui.js`)
   const textNode = document.createTextNode(mark)
   domElement.replaceChild(textNode, domElement.firstChild)
-  
   if (data.game.over) {
     console.log('The game is over inside onUpdateSuccess')
     $('#game-message').text(`Player ${mark} won!`)
   }
+}
+
+const onAjaxFailure = function (error) {
+  $('#game-message').text('The server cannot be reached.')
 }
 
 module.exports = {
@@ -42,5 +45,6 @@ module.exports = {
   alreadyPlayed,
   onCreateSuccess,
   onCreateFailure,
-  onUpdateSuccess
+  onUpdateSuccess,
+  onAjaxFailure
 }
