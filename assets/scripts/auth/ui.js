@@ -39,7 +39,7 @@ const signOutSuccess = function (data) {
   $('#game-message').text('Signed out successfully')
   $('#sign-up, #sign-in').css('visibility', 'visible')
   $('#sign-out, #change-password, #new-game, #display-games').css('visibility', 'hidden')
-  document.getElementById('game-board').empty()
+  $('#game-board').empty()
   console.log('signOutSuccess ran and nothing was returned')
   store.user = null
 }
