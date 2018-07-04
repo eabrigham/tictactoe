@@ -13,6 +13,7 @@ const checkWinner = function (array, mark) {
   }
   return false
 }
+// Checks whether three cells at given indices of an array have the given mark
 const threeInARow = function (array, mark, id1, id2, id3) {
   if (array[id1] !== mark) {
     return false
@@ -24,7 +25,7 @@ const threeInARow = function (array, mark, id1, id2, id3) {
 }
 
 // a function which counts element in an array which are not empty strings
-const countElems = function (array) {
+const countPlayedCells = function (array) {
   let count = 0
   for (let i = 0; i < array.length; i++) {
     if (array[i] !== '') {
@@ -36,5 +37,5 @@ const countElems = function (array) {
 
 module.exports = {
   checkWinner,
-  countElems
+  countPlayedCells
 }

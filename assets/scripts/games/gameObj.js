@@ -8,6 +8,7 @@ const marks = ['x', 'o']
 function Game (cells) {
   this.cells = cells
   this.turns = 0
+  this.won = false
   this.over = false
   this.currPlayerMark = marks[0]
 }
@@ -18,19 +19,21 @@ Game.prototype.move = function (domElement) {
   ui.wipeMessage()
   if (this.over === true) {
     ui.gameAlreadyOver()
-    console.log('The game is over')
     return false
   }
   const index = domElement.id
   if (this.cells[index] !== '') {
-    console.error('This spot has already been played in')
     ui.alreadyPlayed()
     return false
   }
   // update array locally
   this.cells[index] = this.currPlayerMark
   // check for winner
-  this.over = gameFxns.checkWinner(this.cells, this.currPlayerMark)
+  this.won = gameFxns.checkWinner(this.cells, this.currPlayerMark)
+  // the game is over if it is won or nine cells have been played in
+  if (this.won || gameFxns.countPlayedCells(this.cells) === 9) {
+    this.over = true
+  }
 
   // API request goes here
   const apiData = {
@@ -49,8 +52,6 @@ Game.prototype.move = function (domElement) {
     })
     .then(() => {this.changePlayer()})
     .catch(api.onAjaxFailure)
-
-  console.log(`Is the game over? ${this.over}`)
 }
 
 Game.prototype.changePlayer = function () {
