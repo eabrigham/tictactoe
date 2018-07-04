@@ -18,20 +18,21 @@ Tuesday morning I got into a groove and worked on implementing the Game object..
 
 Tuesday afternoon I also started using the Pomodoro method, and discovered that it kept me productive. It also introduces a natural breaking point to git commit and to set a goal for the next 25-minute work session.
 
-Wednesday I hit a wall when I realized I couldn't possibly finish the project in time. However, some help from Nate and later Arjun I improved the implementation of my game object, got rid of the last hard-coding, and got the game engine to finally work. I was also able to plow through some basic UI messaging.
+Wednesday I hit a wall when I realized I couldn't possibly finish the project in time. However, with some feedback from Nate and later Arjun I improved the implementation of my game object, got rid of the last hard-coding, and got the game engine to finally work. I was also able to plow through some basic UI messaging.
 
-With additional time, I would implement the API, and add CSS/Sass styling to the board.
+During the revision period I implemented the game API, which involved figuring out some errors in my understanding of the API documentation, and refactoring parts of my game engine.
+
+In order to allow me to focus on our next unit, Ruby, I chose to first implement a 'minimum viability' project which meets all requirements. However, it has at least two shortcomings: 
+1. It does not include any CSS styling. 
+2. Forms are hidden using CSS when not needed, instead of being dynamically generated.
+
+I plan to address these in a future release. I also plan to refactor my game engine so that the game object is no longer directly linked to the DOM, but rather those changes are handled in the events file. This would allow further future changes such as determining whether a game pulled from the API has been won, and thus allow me to display the total number of games X has won.
+
 
 Possible future features:
 
 Load an unfinished game
-
-- Possible prep for multiplayer game
 - Will need to get game board from API and instantiate a Game with those cells
 - Replace hard-coding this.turns = 0 with calculating turns based on the state of the board.
+- This feature is also prep for allowing two players to play remotely.
 
-Improve styling
-
-- Make change password and sign out invisible until you sign in/out
-- Make sign in/out invisible after signing in
-- Better yet, use modals or a dropdown menu!
