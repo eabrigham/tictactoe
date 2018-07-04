@@ -3,6 +3,17 @@ README for Tic-Tac-Toe project
 Technologies used:
 Primarily JavaScript. Also JQuery and minimal Sass.
 
+Wireframes:
+https://i.imgur.com/VbmCu58.jpg
+https://i.imgur.com/Pz9PSqc.jpg
+
+User Stories:
+-  A user should be able to click on a tic tac toe square and the appropriate marker for his/her player should appear. If the square is already taken or the game is won, nothing should happen.
+- A user should be told when someone wins, and who and who the winner is.
+- A user should be able to log in and out.
+- A user should have the chance to replay after the game.
+- (Bonus: a user should be told how many games they've played and won.)
+
 I began the project by mirroring the Boggle solution. However after speaking to Johnathan, I realized the importance of checking the API documentation before writing to ensure my structure would be compatible. I proceeded to investigate the API documentation and write curl scripts.
 
 In writing out by hand the JSON format expected by the API, I discovered that it mirrored an object, and decided to create a Game object. I further bulleted some of the features I thought the Game ought to have:
@@ -23,13 +34,16 @@ Wednesday I hit a wall when I realized I couldn't possibly finish the project in
 During the revision period I implemented the game API, which involved figuring out some errors in my understanding of the API documentation, and refactoring parts of my game engine.
 
 In order to allow me to focus on our next unit, Ruby, I chose to first implement a 'minimum viability' project which meets all requirements. However, it has at least two shortcomings: 
-1. It does not include any CSS styling. 
+1. It does not include any CSS styling. Nor does it match included wireframes.
 2. Forms are hidden using CSS when not needed, instead of being dynamically generated.
 
 I plan to address these in a future release. I also plan to refactor my game engine so that the game object is no longer directly linked to the DOM, but rather those changes are handled in the events file. This would allow further future changes such as determining whether a game pulled from the API has been won, and thus allow me to display the total number of games X has won.
 
 
 Possible future features:
+
+Display total games player X and player O have won
+- Will involve creating a game object for each game (unconnected to the DOM) to determine win state.
 
 Load an unfinished game
 - Will need to get game board from API and instantiate a Game with those cells
