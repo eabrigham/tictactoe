@@ -19,12 +19,11 @@ const newGame = function (event) {
 
 const displayGames = function (event) {
   event.preventDefault()
+  console.log('running display games from events')
   // TODO get this working properly and work through logic
   // of how it should work
   api.getCompletedGames()
-    .then(function (data) {
-      console.log('ran api display games and data is: ', data)
-    })
+    .then(ui.onDisplayGames)
     .catch(ui.onAjaxFailure)
 }
 

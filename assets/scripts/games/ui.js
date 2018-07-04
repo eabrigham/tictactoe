@@ -35,6 +35,10 @@ const onUpdateSuccess = function (data, domElement, mark) {
   }
 }
 
+const onDisplayGames = function (data) {
+  $('#game-message').text(`${data.games.length} games have been completed on this account`)
+}
+
 const onAjaxFailure = function (error) {
   $('#game-message').text('The server cannot be reached.')
 }
@@ -46,5 +50,6 @@ module.exports = {
   onCreateSuccess,
   onCreateFailure,
   onUpdateSuccess,
+  onDisplayGames,
   onAjaxFailure
 }
