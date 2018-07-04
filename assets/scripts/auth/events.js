@@ -10,8 +10,6 @@ const ui = require('./ui.js')
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  console.log ('In events.onSignUp and data.credentials is', data.credentials)
-  console.log ('In events.onSignUp and data.credentials.password is', data.credentials.password)
   if (data.credentials.password !== data.credentials.password_confirmation) {
     ui.mismatchedPasswords()
     return false

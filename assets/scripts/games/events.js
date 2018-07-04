@@ -8,7 +8,6 @@ const newGame = function (event) {
   ui.wipeMessage()
   api.createGame()
     .then(function (data) {
-      console.log('Ran api create game and data is: ', data)
       ui.onCreateSuccess(data)
       const blankBoard = ['', '', '', '', '', '', '', '', '']
       const currGame = new gameObj.Game(blankBoard)
@@ -20,9 +19,6 @@ const newGame = function (event) {
 
 const displayGames = function (event) {
   event.preventDefault()
-  console.log('running display games from events')
-  // TODO get this working properly and work through logic
-  // of how it should work
   api.getCompletedGames()
     .then(ui.onDisplayGames)
     .catch(ui.onAjaxFailure)

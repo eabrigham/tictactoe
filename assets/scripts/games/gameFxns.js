@@ -8,7 +8,6 @@ const checkWinner = function (array, mark) {
     threeInARow(array, mark, 2, 5, 8) ||
     // diagonals
     threeInARow(array, mark, 0, 4, 8) || threeInARow(array, mark, 2, 4, 6)) {
-    console.log('We have a winner!')
     return true
   }
   return false

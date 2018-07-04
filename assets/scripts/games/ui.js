@@ -13,25 +13,20 @@ const alreadyPlayed = function () {
 }
 
 const newPlayer = function (mark) {
-  console.log('inside change player')
   $('#game-message').text(`It is now player ${mark}'s turn`)
 }
 
 const onCreateSuccess = function (data) {
   store.game = {}
   store.game.id = data.game.id
-  console.log('The game id is', store.game.id)
   $('#game-board').empty()
 }
 
 const onCreateFailure = function (error) {
   $('#game-message').text('The server cannot be reached.')
-  console.log(`Create board API call failed: ${error}`)
 }
 
 const onUpdateSuccess = function (data, domElement, mark, won) {
-  console.log(data)
-  console.log(`The mark is ${mark} inside ui.js`)
   const textNode = document.createTextNode(mark)
   domElement.replaceChild(textNode, domElement.firstChild)
   if (won) {

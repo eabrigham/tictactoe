@@ -52,7 +52,6 @@ Game.prototype.move = function (domElement) {
     })
     .then(() => {
       if (this.over === false) {
-        console.log('inside change mark area of game obj')
         this.changePlayer()
         ui.newPlayer(this.currPlayerMark)
       }
