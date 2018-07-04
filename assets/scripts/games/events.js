@@ -13,6 +13,7 @@ const newGame = function (event) {
       const blankBoard = ['', '', '', '', '', '', '', '', '']
       const currGame = new gameObj.Game(blankBoard)
       setup.boardToHTML(currGame)
+      ui.newPlayer('x')
     })
     .catch(ui.onCreateFailure)
 }
