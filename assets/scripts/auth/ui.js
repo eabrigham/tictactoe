@@ -2,6 +2,11 @@
 
 const store = require('../store.js')
 
+const mismatchedPasswords = function () {
+  document.getElementById('sign-up').reset()
+  $('#game-message').text(`Passwords don't match. Please sign up again.`)
+}
+
 const signUpSuccess = function (data) {
   document.getElementById('sign-up').reset()
   $('#game-message').text('Signed up successfully')
@@ -58,6 +63,7 @@ const signOutFailure = function (err) {
 }
 
 module.exports = {
+  mismatchedPasswords,
   signUpSuccess,
   signUpFailure,
   signInSuccess,
