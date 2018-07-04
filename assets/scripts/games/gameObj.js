@@ -48,9 +48,15 @@ Game.prototype.move = function (domElement) {
 
   api.updateMove(JSON.stringify(apiData))
     .then((data) => {
-      ui.onUpdateSuccess(data, domElement, this.currPlayerMark)
+      ui.onUpdateSuccess(data, domElement, this.currPlayerMark, this.won)
     })
-    .then(() => {this.changePlayer()})
+    .then(() => {
+      if (this.over === false) {
+        console.log('inside change mark area of game obj')
+        this.changePlayer()
+        ui.newPlayer(this.currPlayerMark)
+      }
+    })
     .catch(api.onAjaxFailure)
 }
 
