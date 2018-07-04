@@ -27,7 +27,7 @@ const signInSuccess = function (data) {
 
 const signInFailure = function (err) {
   document.getElementById('sign-in').reset()
-  $('#game-message').text('Error on sign in.')
+  $('#game-message').text('Error on sign in. Please check your password.')
 }
 
 const changePasswordSuccess = function (data) {
