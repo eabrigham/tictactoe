@@ -13,6 +13,9 @@ function Game (cells) {
   this.currPlayerMark = marks[0]
 }
 
+// TODO can add function to run checking for winner (without necessarily needing
+// to separate out the move function to events first)
+
 // Function which has the current player move at the given html DOM element
 // and check for a winner
 Game.prototype.move = function (domElement) {
@@ -35,6 +38,7 @@ Game.prototype.move = function (domElement) {
     this.over = true
   }
 
+  // TODO split out into function
   // API request goes here
   const apiData = {
     game: {

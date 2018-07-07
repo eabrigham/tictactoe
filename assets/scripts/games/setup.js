@@ -21,6 +21,8 @@ const boardToHTML = function (currGame) {
   const table = document.createElement('table')
   for (let row = 0; row < array.length; row++) {
     const tableRow = document.createElement('tr')
+    // TODO call out to an outside function to break up code
+    // use function names to make code clearer
     for (let col = 0; col < array[row].length; col++) {
       const tableData = document.createElement('td')
       tableData.className = 'data-table'
@@ -28,6 +30,7 @@ const boardToHTML = function (currGame) {
       // the number in a 9-element list
       const listNum = 3 * row + col
       tableData.setAttribute('id', listNum)
+      // TODO split out anonymous function and have it call multiple functions
       $(tableData).click(function (event) {
         currGame.move(event.target)
       })
